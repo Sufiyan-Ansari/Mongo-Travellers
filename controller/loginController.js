@@ -29,3 +29,6 @@ exports.PostLoginController = async (req,res,next)=>{
     // }
 }
 }
+exports.GetLoginController = (req,res,next)=>{
+    res.render('login');
+}
