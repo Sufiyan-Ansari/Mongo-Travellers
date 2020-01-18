@@ -16,11 +16,13 @@ exports.PostRegisterController = async (req,res,next) =>{
                 address : req.body.home_address,
                 nic :  req.body.NIC_number,
                 gender : req.body.gender
-                              });
-                              console.log(user);
+             });
+      //     let check =   checkingObjectValue(user);
+         //                     console.log(check);
         try
         {
             const registerUser = await user.save();
+            console.log('Registered Successfully');
             res.render('dashboard',{pageTitle:'Dashboard ::'});         //   res.redirect('dashboard'); 
         }
         catch(error)
@@ -29,6 +31,27 @@ exports.PostRegisterController = async (req,res,next) =>{
         }
 }
 
+
+
 exports.GetRegisterController = (req,res,next)=>{
     res.render('register',{pageTitle:'User Registration ::'});
 }
+
+//  function checkingObjectValue(user)
+//  {
+//     console.log(user);
+     
+//      for(let key in user)
+//         {
+//             if(user[key] === "")
+//             {
+//                 return 1
+//             }
+//             else
+//             return 0;
+//         }    
+        
+        
+     
+
+//  }

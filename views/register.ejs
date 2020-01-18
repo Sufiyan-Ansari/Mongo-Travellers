@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test</title>
+    <script>
+    
+    
+   
+
+    
+    </script>
 </head>
 <body>
     <h2>Register</h2>
-
-    <form action="/register" method="POST">
+    <table border="solid">
+    <form action="/register" method="POST" name="RegistrationForm" onsubmit="return EmptyFieldValidation()">
         <tr>
             <td>Username</td>
             <td><input type="text" id="username" name="username"></td> <br>
@@ -36,9 +43,43 @@
         </tr>
         <tr>
             <td>Gender</td>
-            <td><input type="text" id="gender" name="gender"></td> <br>
+            <!-- <td><input type="radio" id="male" name="gender" type="gender" value="male" checked onclick="RadioValue()"></td>
+            <input type="radio" id="female" name="gender" type="gender" value="female" onclick="RadioValue()"></td> <br>
+        </tr> -->
+        <td><input type="text" id="gender" name="gender"></td>
+        <tr>
+            <td>
+                <input type="submit" id="submitButton" >
+            </td>
         </tr>
-        <input type="submit">
+        
         </form>
+    </table>
 </body>
 </html>
+
+<script>
+     function EmptyFieldValidation()
+    {
+        let username = document.forms['RegistrationForm']["username"].value;
+        let email = document.forms['RegistrationForm']["email"].value;
+        let password = document.forms['RegistrationForm']["password"].value;
+        let phoneNumber = document.forms['RegistrationForm']["Phone_Number"].value;
+        let homeAddress = document.forms['RegistrationForm']["home_address"].value;
+        let nicNumber = document.forms['RegistrationForm']["NIC_number"].value;
+        let gender = document.forms['RegistrationForm']["gender"].value;
+        
+        if(username ==""||email==""||password==""||phoneNumber==""||homeAddress==""||homeAddress==""||nicNumber==""||gender=="")
+        {
+            alert("Please fill form");
+            return false;
+        }
+
+       
+        
+    }
+    </script>
+        
+   
+        
+    

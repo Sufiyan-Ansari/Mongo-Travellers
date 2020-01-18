@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const User = require('../model/user');
 const UserRegistration = require('../model/RegisterUser');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
+const verify = require('../router/verifyToken');
 
 exports.PostLoginController = async (req,res,next)=>{
 
@@ -10,9 +14,19 @@ exports.PostLoginController = async (req,res,next)=>{
     {   username:req.body.username,
         email:req.body.email
     });
-    if(emailExist) return res.render('dashboard');
+    if(emailExist)
+    {
+        
+  //  const token = jwt.sign({_id:User._id},process.env.TOKEN_SECRET);
+    
+   // console.log(token);
+    
+  //  res.setHeader('auth-token',token);
+    res.redirect('dashboard');
+    }
     else if(!emailExist){
-        res.render('register');
+
+       res.render('register');
     // const user = new User({
     //                 name: req.body.username,
     //                 email:req.body.email,
